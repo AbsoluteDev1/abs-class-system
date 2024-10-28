@@ -1,0 +1,51 @@
+----[[
+----- Created: 24/12/2023 14:49
+----- Author: Abou
+----Made with ❤
+---------
+---------
+----Copyright (c) Qinoxe, All Rights Reserved.
+----This file is part of Qinoxe project.
+----Unauthorized using, copying, modifying and/or distributing of this file
+----via any medium is strictly prohibited. This code is confidential.
+---------
+----]]
+--
+--_cn.SkinChangerTest = "SkinChangerTest"
+--loadClass(_cn.SkinChangerTest)
+--
+--import(_cn.Test)
+--import(_cn.SkinComponent)
+--import(_cn.Ped)
+--
+-----@class SkinChangerTest : BaseObject
+-----@field testBench TestBench
+--local SkinChangerTest = class("SkinChangerTest")
+--_a.Test(SkinChangerTest)
+----- Attributs ---
+--
+----- Methods ---
+--
+--function SkinChangerTest.new()
+--    ---@type MyFirstTest
+--    local self = initMetatable(SkinChangerTest);
+--
+--    return self;
+--end
+--
+--function SkinChangerTest:test()
+--    self.testBench:newUnitTest():describe("SkinChangerTest")
+--        :it("should load the default model for the player", function()
+--        local skinChanger = _c.SkinChanger.new();
+--        skinChanger:loadDefaultModel();
+--    end)
+--        :it("should create a ped and change his skin", function()
+--        local ped = _c.Ped.new("a_m_m_skater_01", vector3(-595.69, -1223.32, 13.84));
+--        ped:spawn();
+--        ped:freeze(true);
+--        ped:getSkinComponent():testSkinComponent()
+--    end)
+--end
+--
+--_c.SkinChangerTest = SkinChangerTest
+--classloaded(_cn.SkinChangerTest)

@@ -1,0 +1,58 @@
+--[[
+--- Created: 26/12/2023 08:02
+--- Author: Absolute
+--Made with ❤
+-------
+-------
+
+
+-------
+--]]
+
+_cn.ReplicatedService = "ReplicatedService"
+loadClass(_cn.ReplicatedService)
+
+--- Imports ---
+
+import(_cn.RemoteEvent)
+
+_a.ApplicationScope()
+---@class ReplicatedService : BaseObject
+local ReplicatedService = class(_cn.ReplicatedService)
+
+
+--- Attributs ---
+---
+
+
+--- Methods ---
+
+function ReplicatedService.new()
+    ---@type ReplicatedService
+    local self = initMetatable(ReplicatedService);
+
+    self.rReplicatedObject = _c.RemoteEvent.new("ReplicatedObject")
+    self.rChangeReplicatedObject = _c.RemoteEvent.new("ChangeReplicatedObject")
+    self.replicatedObjects = {}
+
+    if not Interface.isServer() then
+        self.rReplicatedObject.onClient:connect(function(object)
+            local class = _c[object.__class__]
+            local obj = class.new()
+            self.replicatedObjects[object.id] = obj
+        end)
+        self.rChangeReplicatedObject.onClient:connect(function(object)
+            local obj = self.replicatedObjects[object.id]
+            for k, v in pairs(object) do
+                obj[k] = v
+            end
+        end)
+    else
+
+    end
+
+    return self;
+end
+
+_c.ReplicatedService = ReplicatedService
+classloaded(_cn.ReplicatedService)
